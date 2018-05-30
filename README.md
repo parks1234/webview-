@@ -11,8 +11,9 @@
 
     @Override
     public void initData() {
+    //        wv.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
 //        webSettings.setDefaultFixedFontSize(13);//字体
-
+//        wv.getSettings().setPluginsEnabled(true);//可以使用插件
         //    webSettings.setBuiltInZoomControls(true); //设置内置的缩放控件。若为false，则该WebView不可缩放
         //    webSettings.setDisplayZoomControls(false); //隐藏原生的缩放控件
         //   webSettings.setJavaScriptCanOpenWindowsAutomatically(true); //支持通过JS打开新窗口 
@@ -25,23 +26,24 @@
         wv.getSettings().setAppCachePath(appCachePath);//cache路径
         wv.getSettings().setAppCacheEnabled(true);//开启 Application Caches 功能
         wv.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);//缓存
-        wv.getSettings().setSupportZoom(true);//支持缩放，默认为true。是下面那个的前提。
+        wv.getSettings().setSupportZoom(true);//支持缩放，默认为true
         wv.getSettings().setSaveFormData(false);
         wv.getSettings().setJavaScriptEnabled(true);//支持Javascript
         wv.getSettings().setPluginState(WebSettings.PluginState.ON);
         wv.getSettings().setBlockNetworkImage(false);
-//        wv.getSettings().setPluginsEnabled(true);//可以使用插件
         wv.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wv.getSettings().setAllowFileAccess(true);//设置可以访问文件 
         wv.getSettings().setDefaultTextEncodingName("UTF-8");
         wv.getSettings().setLoadWithOverviewMode(true);//将图片调整到适合webview的大小 
+        
         wv.getSettings().setUseWideViewPort(true);//将图片调整到适合webview的大小 
+        
         wv.setVisibility(View.VISIBLE);
         wv.setDownloadListener(new MyWebViewDownLoadListener());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             wv.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         wv.getSettings().setUserAgentString(wv.getSettings().getUserAgentString() + " /(android)" + Build.MODEL + "/" + Build.MANUFACTURER + "/" + Build.VERSION.SDK_INT);
-//        wv.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
+
         wv.getSettings().setTextZoom(100);
 
         WebChromeClient wvcc = new WebChromeClient() {
